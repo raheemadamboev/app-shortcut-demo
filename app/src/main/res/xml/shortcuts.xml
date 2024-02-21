@@ -12,7 +12,7 @@
             android:targetClass="xyz.teamgravity.appshortcutdemo.MainActivity"
             android:targetPackage="xyz.teamgravity.appshortcutdemo">
             <extra
-                android:name="shortcut_id"
+                android:name="MainActivity_keyShortcutId"
                 android:value="static" />
         </intent>
     </shortcut>

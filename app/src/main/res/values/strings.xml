@@ -5,4 +5,10 @@
     <string name="static_short_label">Send video</string>
     <string name="static_long_label">This shortcut sends video to Raheem</string>
     <string name="static_disabled_label">This shortcut is disabled because you are transformer!</string>
+
+    <!-- Main -->
+    <string name="static_shortcut_clicked">Static shortcut clicked!</string>
+    <string name="dynamic_shortcut_clicked">Dynamic shortcut clicked!</string>
+    <string name="pinned_shortcut_clicked">Pinned shortcut clicked!</string>
+    <string name="na">NA</string>
 </resources>
