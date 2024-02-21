@@ -1,4 +1,4 @@
-package com.riproad.appshortcutdemo
+package xyz.teamgravity.appshortcutdemo
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -6,11 +6,8 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import com.riproad.appshortcutdemo.ui.theme.AppShortcutDemoTheme
+import xyz.teamgravity.appshortcutdemo.ui.theme.AppShortcutDemoTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -1,4 +1,4 @@
-package com.riproad.appshortcutdemo.ui.theme
+package xyz.teamgravity.appshortcutdemo.ui.theme
 
 import android.app.Activity
 import android.os.Build

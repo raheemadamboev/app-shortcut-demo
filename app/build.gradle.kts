@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.riproad.appshortcutdemo"
+    namespace = "xyz.teamgravity.appshortcutdemo"
     compileSdk = libs.versions.sdk.compile.get().toInt()
 
     defaultConfig {
-        applicationId = "com.riproad.appshortcutdemo"
+        applicationId = "xyz.teamgravity.appshortcutdemo"
         minSdk = libs.versions.sdk.min.get().toInt()
         targetSdk = libs.versions.sdk.target.get().toInt()
         versionCode = 1

@@ -1,4 +1,4 @@
-package com.riproad.appshortcutdemo.ui.theme
+package xyz.teamgravity.appshortcutdemo.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
