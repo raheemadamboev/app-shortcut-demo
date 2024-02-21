@@ -1,6 +1,10 @@
 package xyz.teamgravity.appshortcutdemo
 
+import android.app.PendingIntent
 import android.content.Intent
+import android.content.pm.ShortcutInfo
+import android.content.pm.ShortcutManager
+import android.graphics.drawable.Icon
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -62,6 +66,13 @@ class MainActivity : ComponentActivity() {
                                 text = stringResource(id = R.string.create_dynamic_shortcut)
                             )
                         }
+                        Button(
+                            onClick = ::createPinnedShortcut
+                        ) {
+                            Text(
+                                text = stringResource(id = R.string.create_pinned_shortcut)
+                            )
+                        }
                     }
                 }
             }
@@ -79,11 +90,13 @@ class MainActivity : ComponentActivity() {
     }
 
     private fun createDynamicShortcut() {
+        val id = Shortcut.Dynamic.id
+
         val intent = Intent(applicationContext, MainActivity::class.java)
         intent.action = Intent.ACTION_VIEW
-        intent.putExtra(KEY_SHORTCUT_ID, Shortcut.Dynamic.id)
+        intent.putExtra(KEY_SHORTCUT_ID, id)
 
-        val shortcut = ShortcutInfoCompat.Builder(applicationContext, Shortcut.Dynamic.id)
+        val shortcut = ShortcutInfoCompat.Builder(applicationContext, id)
             .setShortLabel(getString(R.string.dynamic_short_label))
             .setLongLabel(getString(R.string.dynamic_long_label))
             .setDisabledMessage(getString(R.string.dynamic_disabled_label))
@@ -91,5 +104,27 @@ class MainActivity : ComponentActivity() {
             .setIntent(intent)
             .build()
         ShortcutManagerCompat.pushDynamicShortcut(applicationContext, shortcut)
+    }
+
+    private fun createPinnedShortcut() {
+        val manager = getSystemService(ShortcutManager::class.java) ?: return
+        if (!manager.isRequestPinShortcutSupported) return
+
+        val id = Shortcut.Pinned.id
+
+        val intent = Intent(applicationContext, MainActivity::class.java)
+        intent.action = Intent.ACTION_VIEW
+        intent.putExtra(KEY_SHORTCUT_ID, id)
+
+        val shortcut = ShortcutInfo.Builder(applicationContext, id)
+            .setShortLabel(getString(R.string.pinned_short_label))
+            .setLongLabel(getString(R.string.pinned_long_label))
+            .setDisabledMessage(getString(R.string.pinned_disabled_label))
+            .setIcon(Icon.createWithResource(applicationContext, R.drawable.ic_adb))
+            .setIntent(intent)
+            .build()
+        val callback = manager.createShortcutResultIntent(shortcut)
+        val result = PendingIntent.getBroadcast(applicationContext, 0, callback, PendingIntent.FLAG_IMMUTABLE)
+        manager.requestPinShortcut(shortcut, result.intentSender)
     }
 }
