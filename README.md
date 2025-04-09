@@ -10,4 +10,4 @@ A simple app that demonstrates using static, dynamic, and pinned App Shortcuts.
 
 ## Notes
 
-1. Static shortcut creates instance of activity every time it's clicked. Multiple target activities is not created but target activity always gets recreated. `onNewIntent()` is not called when target activity is on the current stack and app is started from static action even though activity's `launchMode` is set properly. Use dynamic or pinned shortcuts instead if you need `onNewIntent()` usage.
+1. Static shortcut creates instance of activity every time it's clicked. Multiple target activities is not created but target activity always gets recreated. `onNewIntent()` is not called when target activity is on the current stack and app is started from static action even though activity's `launchMode` is set properly. Instead use dynamic or pinned shortcut if you need `onNewIntent()` usage.
