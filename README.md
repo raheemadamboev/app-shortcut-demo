@@ -19,8 +19,9 @@ Static shortcuts can't have custom intent flags. The first intent of a static sh
 4. Pinned shortcuts has no limit. User can create as much as he needs.
 5. Pinned shortcuts can't be removed dynamically. However, they can be disabled.
 6. Each app's launcher icon can contain, at most, a number of static and dynamic shortcuts combined that is equal to the value returned by `getMaxShortcutCountPerActivity()`. There isn't a limit to the number of pinned shortcuts that an app can create.
-7. Most launchers display a maximum of four shortcuts. For any combination of static shortcuts and dynamic shortcuts that are defined, the launcher displays a maximum of two static shortcuts and two dynamic shortcuts. For example, if you define four static shortcuts and programmatically create three dynamic shortcuts, the launcher displays the first two static shortcuts, and the two most highly-ranked dynamic shortcuts.
-8. Static shortcuts have higher priority than dynamic priorities. 1 static shortcut and 15 dynamic shortcuts were added. In the end, 1 static shortcut and last 3 dynamic shortcuts of 15 dynamic shortcuts were displayed.
-9. Although other apps can't access the metadata within your shortcuts, the launcher itself can access this data. Therefore, conceal sensitive user information in this metadata.
-10. If using an `activity-alias` define the meta-data in the `activity-alias` rather than the activity it targets using the `targetActivity` attribute.
-11. When possible, limit short description to 10 characters.
+7. When a dynamic shortcut is pinned, even when the publisher removes it as a dynamic shortcut, the pinned shortcut is still visible and launchable. This lets an app have more than getMaxShortcutCountPerActivity() number of shortcuts.
+8. Most launchers display a maximum of four shortcuts. For any combination of static shortcuts and dynamic shortcuts that are defined, the launcher displays a maximum of two static shortcuts and two dynamic shortcuts. For example, if you define four static shortcuts and programmatically create three dynamic shortcuts, the launcher displays the first two static shortcuts, and the two most highly-ranked dynamic shortcuts.
+9. Static shortcuts have higher priority than dynamic priorities. 1 static shortcut and 15 dynamic shortcuts were added. In the end, 1 static shortcut and last 3 dynamic shortcuts of 15 dynamic shortcuts were displayed.
+10. Although other apps can't access the metadata within your shortcuts, the launcher itself can access this data. Therefore, conceal sensitive user information in this metadata.
+11. If using an `activity-alias` define the meta-data in the `activity-alias` rather than the activity it targets using the `targetActivity` attribute.
+12. When possible, limit short description to 10 characters.
