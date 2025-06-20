@@ -18,7 +18,7 @@ Static shortcuts can't have custom intent flags. The first intent of a static sh
 3. Pinned shortcut isn't included in shortcut list when icon is long clicked.
 4. Pinned shortcuts has no limit. User can create as much as he needs.
 5. Pinned shortcuts can't be removed dynamically. However, they can be disabled.
-6. The maximum number of shortcuts a device supports varies. Use the `ShortcutManagerCompat.getMaxShortcutCountPerActivity(context` method to determine how many shortcuts a particular device supports.
+6. Each app's launcher icon can contain, at most, a number of static and dynamic shortcuts combined that is equal to the value returned by `getMaxShortcutCountPerActivity()`. There isn't a limit to the number of pinned shortcuts that an app can create.
 7. Most launchers display a maximum of four shortcuts. For any combination of static shortcuts and dynamic shortcuts that are defined, the launcher displays a maximum of two static shortcuts and two dynamic shortcuts. For example, if you define four static shortcuts and programmatically create three dynamic shortcuts, the launcher displays the first two static shortcuts, and the two most highly-ranked dynamic shortcuts.
 8. Static shortcuts have higher priority than dynamic priorities. 1 static shortcut and 15 dynamic shortcuts were added. In the end, 1 static shortcut and last 3 dynamic shortcuts of 15 dynamic shortcuts were displayed.
 9. Although other apps can't access the metadata within your shortcuts, the launcher itself can access this data. Therefore, conceal sensitive user information in this metadata.
