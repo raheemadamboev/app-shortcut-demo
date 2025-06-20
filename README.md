@@ -26,3 +26,5 @@ Static shortcuts can't have custom intent flags. The first intent of a static sh
 11. If using an `activity-alias` define the meta-data in the `activity-alias` rather than the activity it targets using the `targetActivity` attribute.
 12. When possible, limit short description to 10 characters.
 13. Apps must update dynamic and pinned shortcuts when they receive the Intent.ACTION_LOCALE_CHANGED broadcast indicating a change to the system locale.
+14. If you remove some of your app's static shortcuts when you update your app, the system disables these shortcuts automatically.
+15. When using the setDynamicShortcuts(), addDynamicShortcuts(), or updateShortcuts() methods, you might only be able to call these methods a specific number of times in a background app —an app with no activities or services in the foreground. The limit on the specific number of times you can call these methods is called rate limiting. https://developer.android.com/develop/ui/views/launch/shortcuts/managing-shortcuts#rate-limiting
