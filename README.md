@@ -11,6 +11,9 @@ A simple app that demonstrates using static, dynamic, and pinned App Shortcuts.
 ## Notes
 
 1. Static shortcut creates instance of activity every time it's clicked. Multiple target activities is not created but target activity always gets recreated. `onNewIntent()` is not called when target activity is on the current stack and app is started from static action even though activity's `launchMode` is set properly. Instead use dynamic or pinned shortcut if you need `onNewIntent()` usage.
+
+Static shortcuts can't have custom intent flags. The first intent of a static shortcut always has Intent.FLAG_ACTIVITY_NEW_TASK and Intent.FLAG_ACTIVITY_CLEAR_TASK set. This means that when your app is running, all the existing activities in the app are destroyed when a static shortcut is launched. If you don't want this behavior, you can use a trampoline activity —an invisible activity that starts another activity—in Activity.onCreate(Bundle) that calls Activity.finish() https://developer.android.com/develop/ui/views/launch/shortcuts/managing-shortcuts#start-one
+
 2. Static shortcuts can't be disabled or removed dynamically. The app crashes if you try to do so.
 3. Pinned shortcut isn't included in shortcut list when icon is long clicked.
 4. Pinned shortcuts has no limit. User can create as much as he needs.
