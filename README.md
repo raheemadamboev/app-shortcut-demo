@@ -25,3 +25,4 @@ Static shortcuts can't have custom intent flags. The first intent of a static sh
 10. Although other apps can't access the metadata within your shortcuts, the launcher itself can access this data. Therefore, conceal sensitive user information in this metadata.
 11. If using an `activity-alias` define the meta-data in the `activity-alias` rather than the activity it targets using the `targetActivity` attribute.
 12. When possible, limit short description to 10 characters.
+13. Apps must update dynamic and pinned shortcuts when they receive the Intent.ACTION_LOCALE_CHANGED broadcast indicating a change to the system locale.
