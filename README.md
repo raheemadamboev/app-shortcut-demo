@@ -19,3 +19,4 @@ A simple app that demonstrates using static, dynamic, and pinned App Shortcuts.
 8. Static shortcuts have higher priority than dynamic priorities. There was 1 static shortcut and 15 dynamic shortcuts were added. In the end, 1 static shortcut and last 3 dynamic shortcuts of 15 dynamic shortcuts were displayed.
 9. Although other apps can't access the metadata within your shortcuts, the launcher itself can access this data. Therefore, conceal sensitive user information in this metadata.
 10. If using an `activity-alias` define the meta-data in the `activity-alias` rather than the activity it targets using the `targetActivity` attribute.
+11. When possible, limit short description to 10 characters.
