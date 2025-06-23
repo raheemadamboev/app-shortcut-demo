@@ -1,16 +1,17 @@
 [versions]
 
-compose = "2024.02.00"
-compose-activity = "1.8.2"
-compose-lifecycle = "2.7.0"
-core = "1.12.0"
+compose = "2025.06.01"
+compose-activity = "1.10.1"
+compose-lifecycle = "2.9.1"
+core = "1.16.0"
+shortcuts = "1.1.0"
 
-android = "8.2.2"
-kotlin = "1.9.22"
+android = "8.10.1"
+kotlin = "2.1.21"
 
 sdk-min = "26"
-sdk-compile = "34"
-sdk-target = "34"
+sdk-compile = "35"
+sdk-target = "35"
 compose-compiler = "1.5.8"
 java-target = "17"
 
@@ -24,8 +25,10 @@ compose-material3 = { group = "androidx.compose.material3", name = "material3" }
 compose-activity = { group = "androidx.activity", name = "activity-compose", version.ref = "compose-activity" }
 compose-lifecycle = { group = "androidx.lifecycle", name = "lifecycle-runtime-compose", version.ref = "compose-lifecycle" }
 core = { group = "androidx.core", name = "core-ktx", version.ref = "core" }
+shortcuts = { group = "androidx.core", name = "core-google-shortcuts", version.ref = "shortcuts" }
 
 [plugins]
 
 android = { id = "com.android.application", version.ref = "android" }
 kotlin = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }

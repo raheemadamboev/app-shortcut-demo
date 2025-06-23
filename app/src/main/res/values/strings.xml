@@ -4,13 +4,13 @@
     <!-- Shortcut -->
     <string name="static_short_label">Send video</string>
     <string name="static_long_label">This shortcut sends video to Raheem</string>
-    <string name="static_disabled_label">This shortcut is disabled because you are transformer!</string>
+    <string name="static_disabled_label">Static shortcut is currently disabled</string>
     <string name="dynamic_short_label">Call mum</string>
     <string name="dynamic_long_label">This shortcut calls your mum</string>
-    <string name="dynamic_disabled_label">This shortcut is disabled because you are transformer!</string>
+    <string name="dynamic_disabled_label">Dynamic shortcut is currently disabled</string>
     <string name="pinned_short_label">Chat group</string>
     <string name="pinned_long_label">This shortcut chats with your group</string>
-    <string name="pinned_disabled_label">This shortcut is disabled because you are transformer!</string>
+    <string name="pinned_disabled_label">Pinned shortcut is currently disabled</string>
 
     <!-- Main -->
     <string name="static_shortcut_clicked">Static shortcut clicked!</string>
@@ -18,5 +18,10 @@
     <string name="pinned_shortcut_clicked">Pinned shortcut clicked!</string>
     <string name="na">NA</string>
     <string name="create_dynamic_shortcut">Create dynamic shortcut</string>
+    <string name="disable_dynamic_shortcut">Disable dynamic shortcut</string>
+    <string name="remove_dynamic_shortcut">Remove dynamic shortcut</string>
     <string name="create_pinned_shortcut">Create pinned shortcut</string>
+    <string name="disable_pinned_shortcut">Disable pinned shortcut</string>
+    <string name="enable_pinned_shortcut">Enable pinned shortcut</string>
+    <string name="mum_not_available">Mum isn\'t available at the moment</string>
 </resources>

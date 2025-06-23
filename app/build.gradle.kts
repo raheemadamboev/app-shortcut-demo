@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android)
     alias(libs.plugins.kotlin)
+    alias(libs.plugins.compose)
 }
 
 android {
@@ -40,10 +41,6 @@ android {
         compose = true
     }
 
-    composeOptions {
-        kotlinCompilerExtensionVersion = libs.versions.compose.compiler.get()
-    }
-
     packaging {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
@@ -68,4 +65,7 @@ dependencies {
 
     // core
     implementation(libs.core)
+
+    // shortcuts
+    implementation(libs.shortcuts)
 }

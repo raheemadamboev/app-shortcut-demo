@@ -67,10 +67,38 @@ class MainActivity : ComponentActivity() {
                             )
                         }
                         Button(
+                            onClick = ::disableDynamicShortcut
+                        ) {
+                            Text(
+                                text = stringResource(id = R.string.disable_dynamic_shortcut)
+                            )
+                        }
+                        Button(
+                            onClick = ::removeDynamicShortcut
+                        ) {
+                            Text(
+                                text = stringResource(id = R.string.remove_dynamic_shortcut)
+                            )
+                        }
+                        Button(
                             onClick = ::createPinnedShortcut
                         ) {
                             Text(
                                 text = stringResource(id = R.string.create_pinned_shortcut)
+                            )
+                        }
+                        Button(
+                            onClick = ::disablePinnedShortcut
+                        ) {
+                            Text(
+                                text = stringResource(id = R.string.disable_pinned_shortcut)
+                            )
+                        }
+                        Button(
+                            onClick = ::enablePinnedShortcut
+                        ) {
+                            Text(
+                                text = stringResource(id = R.string.enable_pinned_shortcut)
                             )
                         }
                     }
@@ -79,7 +107,7 @@ class MainActivity : ComponentActivity() {
         }
     }
 
-    override fun onNewIntent(intent: Intent?) {
+    override fun onNewIntent(intent: Intent) {
         super.onNewIntent(intent)
         checkShortcutId(intent)
     }
@@ -106,11 +134,22 @@ class MainActivity : ComponentActivity() {
         ShortcutManagerCompat.pushDynamicShortcut(applicationContext, shortcut)
     }
 
+    private fun disableDynamicShortcut() {
+        val id = Shortcut.Dynamic.id
+        ShortcutManagerCompat.disableShortcuts(applicationContext, listOf(id), getString(R.string.mum_not_available))
+    }
+
+    private fun removeDynamicShortcut() {
+        val id = Shortcut.Dynamic.id
+        ShortcutManagerCompat.removeDynamicShortcuts(applicationContext, listOf(id))
+    }
+
     private fun createPinnedShortcut() {
         val manager = getSystemService(ShortcutManager::class.java) ?: return
         if (!manager.isRequestPinShortcutSupported) return
 
         val id = Shortcut.Pinned.id
+        if (manager.pinnedShortcuts.firstOrNull { it.id == id } != null) return
 
         val intent = Intent(applicationContext, MainActivity::class.java)
         intent.action = Intent.ACTION_VIEW
@@ -126,5 +165,21 @@ class MainActivity : ComponentActivity() {
         val callback = manager.createShortcutResultIntent(shortcut)
         val result = PendingIntent.getBroadcast(applicationContext, 0, callback, PendingIntent.FLAG_IMMUTABLE)
         manager.requestPinShortcut(shortcut, result.intentSender)
+    }
+
+    private fun disablePinnedShortcut() {
+        val manager = getSystemService(ShortcutManager::class.java) ?: return
+        if (!manager.isRequestPinShortcutSupported) return
+
+        val id = Shortcut.Pinned.id
+        manager.disableShortcuts(listOf(id))
+    }
+
+    private fun enablePinnedShortcut() {
+        val manager = getSystemService(ShortcutManager::class.java) ?: return
+        if (!manager.isRequestPinShortcutSupported) return
+
+        val id = Shortcut.Pinned.id
+        manager.enableShortcuts(listOf(id))
     }
 }
